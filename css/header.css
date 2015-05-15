@@ -1,0 +1,18 @@
+#container {
+    width: 1004px;
+    margin: 0 auto;
+}
+
+#header {
+    border-radius: 10px 10px 0px 0px;
+    background-repeat: no-repeat;
+    width: 1004px;
+    height: 100px;
+    background-color: #999;
+}
+
+#logo {
+    margin: 0px 0px 0px 100px;
+    width: 210px;
+    height: 100px;
+}
