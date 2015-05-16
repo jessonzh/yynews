@@ -7,7 +7,7 @@
     border-radius: 10px 10px 0px 0px;
     background-repeat: no-repeat;
     width: 1004px;
-    height: 100px;
+    height: 130px;
     background-color: #999;
 }
 
@@ -15,4 +15,23 @@
     margin: 0px 0px 0px 100px;
     width: 210px;
     height: 100px;
+}
+
+#search {
+    width: 1004px;
+    height: 30px;
+    background-color: #777;
+}
+#search form {
+    margin: 5px 0px 0px 0px;
+    color: #4FD9EF;
+    font-family: '微软雅黑';
+    font-size: 16px;
+    text-align: center;
+}
+#search form a {
+    margin: 0px 10px;
+    float: right;
+    text-align: right;
+    color: #8A84FF;
 }
