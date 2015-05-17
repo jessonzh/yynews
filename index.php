@@ -14,7 +14,19 @@
     require ('./inc/header.inc');
      ?>
 
-
+<!-- main部分开始 -->
+    <div id="main">
+        <div id="categories">
+            <div class="title">新闻分类</div>
+        </div>
+        <div id="newten">
+            <div class="title">最新十条</div>
+        </div>
+        <div id="hotten">
+            <div class="title">最热十条</div>
+        </div>
+    </div>
+<!-- main部分结束 -->
 
     <?php
     require './inc/footer.inc';

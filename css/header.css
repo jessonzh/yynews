@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     width: 1004px;
     height: 130px;
-    background-color: #999;
+    background-color: #606060;
 }
 
 #logo {
@@ -23,7 +23,8 @@
     background-color: #777;
 }
 #search form {
-    margin: 5px 0px 0px 0px;
+    width: 1004px;
+    height: 30px;
     color: #4FD9EF;
     font-family: '微软雅黑';
     font-size: 16px;
