@@ -1,0 +1,20 @@
+#main {
+    width: 1004px;
+    height: 600px;
+}
+
+#categories {
+    width: 200px;
+    height: 600px;
+    background-color: #EDEDFE;
+    float: left;
+}
+
+
+.title {
+    background-color: #509CBB;
+    height: 30px;
+    font-family: '微软雅黑';
+    text-align: center;
+    font-size: 16px;
+}
