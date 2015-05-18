@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     width: 1004px;
     height: 130px;
-    background-color: #606060;
+    background-color: #DFDFDF;
 }
 
 #logo {
@@ -23,6 +23,7 @@
     background-color: #777;
 }
 #search form {
+    padding-top: 3px;
     width: 1004px;
     height: 30px;
     color: #4FD9EF;
