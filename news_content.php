@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 新闻列表</title>
+    <title>云影新闻网 | 新闻内容</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
-    <link rel="stylesheet" type="text/css" href="./css/news_list.css">
+    <link rel="stylesheet" type="text/css" href="./css/news_content.css">
 </head>
 <body>
 <div id="container">
@@ -16,13 +16,7 @@
 
 <!-- main部分开始 -->
     <div id="main">
-        <div id="categories">
-            <div class="title">新闻分类</div>
-        </div>
-        <div id="newstype">
-            <div class="title"><?php echo $_POST[$newstype]; ?></div>
 
-        </div>
     </div>
 <!-- main部分结束 -->
 
