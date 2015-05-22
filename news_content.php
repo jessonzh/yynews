@@ -16,7 +16,13 @@
 
 <!-- main部分开始 -->
     <div id="main">
+        <div id="newscontent">
+            <div class="title">新闻标题：实际的新闻标题</div>
+        </div>
+        <div id="comments">
+            <div class="title">新闻评论</div>
 
+        </div>
     </div>
 <!-- main部分结束 -->
 

@@ -18,6 +18,18 @@
     <div id="main">
         <div id="categories">
             <div class="title">新闻分类</div>
+            <ul>
+                <li><a href="./index.php">首页</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+                <li><a href="">分类新闻</a></li>
+            </ul>
         </div>
         <div id="newten">
             <div class="title">最新十条</div>

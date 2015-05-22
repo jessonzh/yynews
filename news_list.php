@@ -19,9 +19,11 @@
         <div id="categories">
             <div class="title">新闻分类</div>
         </div>
-        <div id="newstype">
-            <div class="title"><?php echo $_POST[$newstype]; ?></div>
-
+        <div id="newslist">
+            <div class="title">从前一页获取新闻类别</div>
+            <div id="content">
+                查询内容
+            </div>
         </div>
     </div>
 <!-- main部分结束 -->
