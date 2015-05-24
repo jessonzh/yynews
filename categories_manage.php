@@ -27,6 +27,12 @@
         </div>
         <div id="categoriesmanage">
             <div class="title">类别管理</div>
+            输出类别表格
+            <form action="./class/" method="post">
+                请输入类别名称：
+                <input type="text" name="category">
+                <input type="submit" value="增加类别">
+            </form>
         </div>
     </div>
 <!-- main部分结束 -->
