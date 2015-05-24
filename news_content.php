@@ -18,10 +18,17 @@
     <div id="main">
         <div id="newscontent">
             <div class="title">新闻标题：实际的新闻标题</div>
+            输出实际的新闻内容
         </div>
         <div id="comments">
             <div class="title">新闻评论</div>
-
+            <div id="addcomments">
+                <form action="class/" method="post">
+                    <p>添加评论</p>
+                    <textarea name="Comment" rows="10" cols="50"></textarea>
+                    <p><input type="submit" value="提交"></p>
+                </form>
+            </div>
         </div>
     </div>
 <!-- main部分结束 -->
