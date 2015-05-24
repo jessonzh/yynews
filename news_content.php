@@ -22,6 +22,7 @@
         </div>
         <div id="comments">
             <div class="title">新闻评论</div>
+            输出实际的新闻评论
             <div id="addcomments">
                 <form action="class/" method="post">
                     <p>添加评论</p>
