@@ -31,9 +31,10 @@
             <form action="./class/" method="post">
                 所属类别：<select name="category"><option value="1">体育新闻</option></select><!-- 需要查询数据库 -->
                 <p>新闻标题：</p>
-                <input type="text" name="newstitle">
+                <textarea name="newstitle" rows="2" cols="50"></textarea>
                 <p>新闻内容：</p>
-                <textarea name="newscontent" rows="10" cols="70"></textarea>
+                <textarea name="newscontent" rows="10" cols="50"></textarea>
+                <p><input type="submit" value="添加新闻"></p>
             </form>
         </div>
     </div>
