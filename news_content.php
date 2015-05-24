@@ -26,7 +26,7 @@
             <div id="addcomments">
                 <form action="class/" method="post">
                     <p>添加评论</p>
-                    <textarea name="Comment" rows="10" cols="50"></textarea>
+                    <textarea name="comment" rows="10" cols="50"></textarea>
                     <p><input type="submit" value="提交"></p>
                 </form>
             </div>

@@ -16,7 +16,8 @@
 
 <!-- main部分开始 -->
     <div id="main">
-
+        <div class="title">搜索结果</div>
+        输出搜索结果
     </div>
 <!-- main部分结束 -->
 

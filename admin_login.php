@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 首页</title>
+    <title>云影新闻网 | 管理员登录</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
@@ -16,7 +16,21 @@
 
 <!-- main部分开始 -->
     <div id="main">
-
+        <div class="title">管理员登录</div>
+        <form action="./news_manage.php" method="post">
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+            </table>
+            <p><a href="#">忘记密码</a></p>
+            <p><input type="submit" value="登录"></p>
+        </form>
     </div>
 <!-- main部分结束 -->
 
