@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 首页</title>
+    <title>云影新闻网 | 出错了！</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
@@ -16,7 +16,10 @@
 
 <!-- main部分开始 -->
     <div id="main">
-
+        <div id="pic"><img src="./images/error.gif"></div>
+        <h1>We're sorry...</h1>
+        <p>非常抱歉，你所查找的页面没有找到！</p>
+        <p><a href="./index.php">返回主页</a></p>
     </div>
 <!-- main部分结束 -->
 
