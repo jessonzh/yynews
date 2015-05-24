@@ -19,7 +19,7 @@
         <div id="categories">
             <div class="title">新闻分类</div>
             <ul>
-                <li><a href="./index.php">首页</a></li>
+                <li><a href="./index.php">首&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页</a></li>
                 <li><a href="">分类新闻</a></li>
                 <li><a href="">分类新闻</a></li>
                 <li><a href="">分类新闻</a></li>

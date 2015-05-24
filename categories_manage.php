@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 首页</title>
+    <title>云影新闻网 | 新闻类别管理</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
@@ -16,7 +16,18 @@
 
 <!-- main部分开始 -->
     <div id="main">
-
+        <div id="managecenter">
+            <div class="title">管理中心</div>
+            <ul>
+                <li><a href="./index.php">首&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页</a></li>
+                <li><a href="./categories_manage.php">类别管理</a></li>
+                <li><a href="./news_manage.php">新闻管理</a></li>
+                <li><a href="./comments_manage.php">评论管理</a></li>
+            </ul>
+        </div>
+        <div id="categoriesmanage">
+            <div class="title">类别管理</div>
+        </div>
     </div>
 <!-- main部分结束 -->
 
