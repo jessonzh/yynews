@@ -1,7 +1,9 @@
 <?php
 //功能：连接到数据库
-require_once('./Db.conf.php');
+
+require_once './Db.conf.php';
 date_default_timezone_set(TIMEZONE);
+
 class DbConnect
 {
     private $host;
@@ -9,6 +11,7 @@ class DbConnect
     private $password;
     private $dbname;
     public $conn;
+
     public function _construct($host = DB_HOST, $username = DB_USER, $password = DB_PASSWORD, $dbname = DB_NAME)
     {
         $this->host = $host;
@@ -16,11 +19,12 @@ class DbConnect
         $this->password = $password;
         $this->dbname = $dbname;
     }
+
     public function db_connect()
     {
-        $this->conn = mysql_connect($this->host, $this->username, $this->password);
-        mysql_selectdb($this->dbname);
-        mysql_query("set names utf8", $this->conn);
+        @$this->conn = mysql_connect($this->host, $this->username, $this->password);
+        @mysql_selectdb($this->dbname);
+        @mysql_query("set names utf8", $this->conn);
     }
 }
 
