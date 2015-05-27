@@ -12,7 +12,7 @@ class DbConnect
     private $dbname;
     public $conn;
 
-    public function _construct($host = DB_HOST, $username = DB_USER, $password = DB_PASSWORD, $dbname = DB_NAME)
+    public function __construct($host = DB_HOST, $username = DB_USER, $password = DB_PASSWORD, $dbname = DB_NAME)
     {
         $this->host = $host;
         $this->username = $username;
@@ -22,8 +22,8 @@ class DbConnect
 
     public function db_connect()
     {
-        @$this->conn = mysql_connect($this->host, $this->username, $this->password);
-        @mysql_selectdb($this->dbname);
+        $this->conn = @mysql_connect($this->host, $this->username, $this->password);
+        @mysql_select_db($this->dbname);
         @mysql_query("set names utf8", $this->conn);
     }
 }
