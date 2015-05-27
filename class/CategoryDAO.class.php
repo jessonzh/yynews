@@ -28,7 +28,7 @@ public function getCategories()
         $rs_array[] = $row;
     }
     return $rs_array;
-    mysql_close($this->conn);
+    @mysql_close($this->conn);
 }
 
 //用li的a形式链接显示全部类别
@@ -45,7 +45,7 @@ public function displayCategories($rs_array)
         echo "<li><a href=\"#\">$name</a></li>";
     }
     echo "</ul>";/
-    mysql_close($this->conn);
+    @mysql_close($this->conn);
 }
 
 //类别以下拉列表的形式输出
@@ -60,8 +60,14 @@ public function optionCategories($rs_array)
         $id = $row["catId"];
         $name = $row["catName"];
         echo "<option value=\"$id\">$name</option>";
-        echo "</select>";
     }
+    echo "</select>";
+    @mysql_close($this->conn);
+}
+
+//函数说明：增加一个类别，传入一个标签名，返回一个是否bool型的变量
+public function insertCategories($catName)
+{
 
 }
 
