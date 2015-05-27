@@ -116,6 +116,7 @@ class CategoryDAO
      * 删除类别（连同其下的新闻和新闻评论一起删除）
      * @param  [type] $catId [description]
      * @return [type]        [description]
+     * ！！！需要继续补充级联删除
      */
     public function deleteRow($catId)
     {
