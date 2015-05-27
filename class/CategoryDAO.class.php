@@ -48,15 +48,26 @@ public function displayCategories($rs_array)
     mysql_close($this->conn);
 }
 
-//
+//类别以下拉列表的形式输出
 public function optionCategories($rs_array)
 {
     if (!rs_array) {
         echo "error!";
         return;
     }
+    echo "<select name=\"catName\">";
+    foreach ($rs_array as $row) {
+        $id = $row["catId"];
+        $name = $row["catName"];
+        echo "<option value=\"$id\">$name</option>";
+        echo "</select>";
+    }
 
 }
 
 
  ?>
+
+
+
+
