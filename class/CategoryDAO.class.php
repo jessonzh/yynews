@@ -12,6 +12,7 @@ public _construct(){
     $this->conn = $db->conn;
 }
 
+//取出所有的分类，返回一个二维数组
 public function getCategories()
 {
     $rs = @mysql_query("select * from categories", $this->conn);
@@ -29,5 +30,33 @@ public function getCategories()
     return $rs_array;
     mysql_close($this->conn);
 }
+
+//用li的a形式链接显示全部类别
+public function displayCategories($rs_array)
+{
+    if (!$rs_array) {
+        echo "error!";
+        return;
+    }
+    echo "<ul>";
+    foreach ($rs_array as $row) {
+        $id = $row["catId"];
+        $name = $row["catName"];
+        echo "<li><a href=\"#\">$name</a></li>";
+    }
+    echo "</ul>";/
+    mysql_close($this->conn);
+}
+
+//
+public function optionCategories($rs_array)
+{
+    if (!rs_array) {
+        echo "error!";
+        return;
+    }
+
+}
+
 
  ?>
