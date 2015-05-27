@@ -37,5 +37,4 @@ $db->db_connect();
 var_dump($db);
 */
 
-
  ?>
