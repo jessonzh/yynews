@@ -28,8 +28,10 @@ class DbConnect
     }
 }
 
+/**
+ * 测试代码
+ */
 /*
-//测试代码
 $db = new DbConnect();
 $db->db_connect();
 var_dump($db);
