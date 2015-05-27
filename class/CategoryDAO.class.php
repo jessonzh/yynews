@@ -108,6 +108,37 @@ public function updateCategory($newCatName, $catId)
     @mysql_close($this->conn);
 }
 
+/**
+ * 删除类别（连同其下的新闻和新闻评论一起删除）
+ * @param  [type] $catId [description]
+ * @return [type]        [description]
+ */
+public function deleteRow($catId)
+{
+    $sql = "delete from categories where catId = $catId";
+    $del = false;
+    if (@mysql_query($sql, $this->conn)) {
+        $del = true;
+    } else {
+        $del = false;
+    }
+    return $del;
+    @mysql_close($this->conn);
+}
+
+public function getIdByCatname($catId)
+{
+    @$rs = mysql_query("select catName from categories where catId = '$catId'", $this->conn);
+    if (!rs) {
+        return false;
+    }
+    if (@mysql_num_rows($rs) == 0) {
+        return false;
+    } else {
+
+    }
+}
+
  ?>
 
 
