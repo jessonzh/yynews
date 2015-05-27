@@ -77,15 +77,36 @@ public function optionCategories($rs_array)
 }
 
 /**
- * 增加一个类别，传入一个标签名，返回一个是否bool型的变量
+ * 增加一个类别，传入一个标签名，返回一个是否bool型的变量，判断是否成功
  * @param  [type] $catName [description]
  * @return [type]          [description]
  */
 public function insertCategories($catName)
 {
-
+    $sql = "insert into categories(catName) values('$catName')";
+    @mysql_query($sql, $this->conn);
+    @$id = mysql_insert_id($this->conn);
+    return $id;
+    @mysql_close($this->conn);
 }
 
+/**
+ * [updateCategory description]
+ * @param  [type] $newCatName [description]
+ * @param  [type] $catId      [description]
+ * @return [type]             [description]
+ */
+public function updateCategory($newCatName, $catId)
+{
+    $sql = "update categories set catName = '$newCatName' where catId = $catId";
+    @mysql_query($sql, $this->conn);
+    if (@mysql_affected_rows() != -1) {
+        return ture;
+    } else {
+        return false;
+    }
+    @mysql_close($this->conn);
+}
 
  ?>
 
