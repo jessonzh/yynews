@@ -12,4 +12,4 @@ images文件夹 | 存放页面模板对应的图片文件
 js文件夹 | 存放页面对应的JavaScript文件
 sql文件夹 | 存放sql文件
 inc文件夹 | 存放header和footer
-运行的php、html文件 | 直接放在根目录下。
+根目录 | 运行的php、html文件
