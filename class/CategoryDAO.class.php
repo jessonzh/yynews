@@ -126,6 +126,11 @@ public function deleteRow($catId)
     @mysql_close($this->conn);
 }
 
+/**
+ * 由类别Id获取类别名
+ * @param  [type] $catId [description]
+ * @return [type]        [description]
+ */
 public function getIdByCatname($catId)
 {
     @$rs = mysql_query("select catName from categories where catId = '$catId'", $this->conn);
@@ -135,9 +140,58 @@ public function getIdByCatname($catId)
     if (@mysql_num_rows($rs) == 0) {
         return false;
     } else {
-
+        @$rs =mysql_result($rs, 0, "catId");
+        return $rs;
     }
+    @mysql_close($this->conn);
 }
+
+/**
+ * 由类别Id获取类别名
+ * @param  [type] $catName [description]
+ * @return [type]          [description]
+ */
+public function getCatnameById($catName)
+{
+    @$rs = mysql_query("select catId from categories where catName = '$catName'", $this->conn);
+    if (!rs) {
+        return false;
+    }
+    if (@mysql_num_rows($rs) == 0) {
+        return false;
+    } else {
+        @$rs =mysql_result($rs, 0, "catName");
+        return $rs;
+    }
+    @mysql_close($this->conn);
+}
+
+/**
+ * 测试代码
+ */
+
+header("content-type:text/html;charset=utf8");
+$ca = new CategoryDAO();
+$rs_array=$ca->getCategories();
+$ca->displayCategories($rs_array);
+$ca->optionCategories($rs_array);
+var_dump($ca->updateCategory("花话",5));
+var_dump($ca->deleteRow(2));
+$rs =$ca->getIdByCatname('国际新');
+if ($rs) {
+echo $rs;
+}else{
+echo "不存在";
+}
+$rs =$ca->getCatnameById(5);
+if ($rs) {
+echo $rs;
+}else{
+echo "不存在";
+}
+
+
+
 
  ?>
 
