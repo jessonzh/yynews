@@ -1,5 +1,7 @@
 <?php
-//功能：操作新闻的类别
+/**
+ * 功能：操作新闻的类别
+ */
 
 require_once './DbConnect.class.php';
 
@@ -8,7 +10,7 @@ class CategoryDAO
     private $conn;
 
     //构造函数，创建数据库连接
-    public function _construct(){
+    public function __construct(){
         $db = new DbConnect();
         $db->db_connect();
         $this->conn = $db->conn;
@@ -29,7 +31,7 @@ class CategoryDAO
             return false;
         }
         $rs_array = array();
-        while ($row = mysql_fetch_assoc($rs)) {
+        while ($row = @mysql_fetch_assoc($rs)) {
             $rs_array[] = $row;
         }
         return $rs_array;
@@ -64,7 +66,7 @@ class CategoryDAO
      */
     public function optionCategories($rs_array)
     {
-        if (!rs_array) {
+        if (!$rs_array) {
             echo "error!";
             return;
         }
@@ -87,7 +89,7 @@ class CategoryDAO
     {
         $sql = "insert into categories(catName) values('$catName')";
         @mysql_query($sql, $this->conn);
-        @$id = mysql_insert_id($this->conn);
+        $id = @mysql_insert_id($this->conn);
         return $id;
         @mysql_close($this->conn);
     }
@@ -103,7 +105,7 @@ class CategoryDAO
         $sql = "update categories set catName = '$newCatName' where catId = $catId";
         @mysql_query($sql, $this->conn);
         if (@mysql_affected_rows() != -1) {
-            return ture;
+            return true;
         } else {
             return false;
         }
@@ -133,16 +135,16 @@ class CategoryDAO
      * @param  [type] $catId [description]
      * @return [type]        [description]
      */
-    public function getIdByCatname($catId)
+    public function getCatnameById($catId)
     {
-        @$rs = mysql_query("select catName from categories where catId = '$catId'", $this->conn);
-        if (!rs) {
+        $rs = @mysql_query("select catName from categories where catId = '$catId'", $this->conn);
+        if (!$rs) {
             return false;
         }
         if (@mysql_num_rows($rs) == 0) {
             return false;
         } else {
-            @$rs =mysql_result($rs, 0, "catId");
+            $rs =@mysql_result($rs, 0, "catName");
             return $rs;
         }
         @mysql_close($this->conn);
@@ -153,46 +155,50 @@ class CategoryDAO
      * @param  [type] $catName [description]
      * @return [type]          [description]
      */
-    public function getCatnameById($catName)
+    public function getIdByCatname($catName)
     {
-        @$rs = mysql_query("select catId from categories where catName = '$catName'", $this->conn);
-        if (!rs) {
+        $rs = @mysql_query("select catId from categories where catName = '$catName'", $this->conn);
+        if (!$rs) {
             return false;
         }
         if (@mysql_num_rows($rs) == 0) {
             return false;
         } else {
-            @$rs =mysql_result($rs, 0, "catName");
+            $rs =@mysql_result($rs, 0, "catId");
             return $rs;
         }
         @mysql_close($this->conn);
     }
 }
+
+
 /**
  * 测试代码
  */
-
+/*
 header("content-type:text/html;charset=utf8");
 echo "ok";
-// $ca = new CategoryDAO();
-// $rs_array=$ca->getCategories();
-// $ca->displayCategories($rs_array);
-// $ca->optionCategories($rs_array);
-// var_dump($ca->updateCategory("政治新闻",2));
-// var_dump($ca->deleteRow(3));
-// $rs =$ca->getIdByCatname('国际新闻');
-// if ($rs) {
-//     echo $rs;
-// } else {
-//     echo "不存在";
-// }
-// $rs =$ca->getCatnameById(5);
-// if ($rs) {
-//     echo $rs;
-// } else {
-//     echo "不存在";
-// }
-
+$ca = new CategoryDAO();
+var_dump($ca);
+$rs_array=$ca->getCategories();
+var_dump($rs_array);
+$ca->displayCategories($rs_array);
+$ca->optionCategories($rs_array);
+var_dump($ca->updateCategory("政治新闻",2));
+var_dump($ca->deleteRow(3));
+$rs =$ca->getIdByCatname('国际新闻');
+if ($rs) {
+    echo $rs;
+} else {
+    echo "不存在";
+}
+$rs =$ca->getCatnameById(5);
+if ($rs) {
+    echo $rs;
+} else {
+    echo "不存在";
+}
+*/
 
  ?>
 
