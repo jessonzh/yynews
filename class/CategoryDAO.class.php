@@ -12,7 +12,10 @@ public _construct(){
     $this->conn = $db->conn;
 }
 
-//取出所有的分类，返回一个二维数组
+/**
+ * 取出所有的分类，返回一个二维数组
+ * @return [type] [description]
+ */
 public function getCategories()
 {
     $rs = @mysql_query("select * from categories", $this->conn);
@@ -31,7 +34,11 @@ public function getCategories()
     @mysql_close($this->conn);
 }
 
-//用li的a形式链接显示全部类别
+/**
+ * 用li的a形式链接显示全部类别
+ * @param  [type] $rs_array [description]
+ * @return [type]           [description]
+ */
 public function displayCategories($rs_array)
 {
     if (!$rs_array) {
@@ -48,7 +55,11 @@ public function displayCategories($rs_array)
     @mysql_close($this->conn);
 }
 
-//类别以下拉列表的形式输出
+/**
+ * 类别以下拉列表的形式输出
+ * @param  [type] $rs_array [description]
+ * @return [type]           [description]
+ */
 public function optionCategories($rs_array)
 {
     if (!rs_array) {
@@ -65,7 +76,11 @@ public function optionCategories($rs_array)
     @mysql_close($this->conn);
 }
 
-//函数说明：增加一个类别，传入一个标签名，返回一个是否bool型的变量
+/**
+ * 增加一个类别，传入一个标签名，返回一个是否bool型的变量
+ * @param  [type] $catName [description]
+ * @return [type]          [description]
+ */
 public function insertCategories($catName)
 {
 
