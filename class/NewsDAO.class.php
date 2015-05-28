@@ -47,6 +47,7 @@ class NewsDAO
             echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -83,6 +84,7 @@ class NewsDAO
             echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -114,6 +116,7 @@ class NewsDAO
             echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -146,6 +149,7 @@ class NewsDAO
             echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
         }
         echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -155,9 +159,13 @@ class NewsDAO
      * @param [type] $createTime [description]
      * @param [type] $catId      [description]
      */
-    public function addNews($title, $content, $createTime, $catId)
+    public function insertNews($title, $content, $createTime, $catId)
     {
-
+        $sql = "insert into news(title, content, createTime, catId) values('$title', '$content', $createTime, $catId)";
+        mysql_query($sql, $this->conn);
+        $id = mysql_insert_id($this->conn);
+        mysql_close($this->conn);
+        return $id;
     }
 }
 
@@ -171,7 +179,8 @@ $ca = new NewsDAO();
 var_dump($ca);
 // $ca->displayNewTenNews();
 // $ca->displayHotTenNews();
-$ca->displayNewsByNewsid(6);
+// $ca->displayNewsByNewsid(6);
+var_dump($ca->insertNews('测试', '测试新闻测试测试新闻测试新闻', 20150529, 1));
 // var_dump($rs_array);
 
  ?>
