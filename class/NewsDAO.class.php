@@ -92,7 +92,28 @@ class NewsDAO
      */
     public function displayNewsByCatid($catId)
     {
-
+        $rs = mysql_query("select title, catName, createTime from news, categories where (news.catId = categories.catId) and (news.catId = $catId) order by createTime desc limit 20", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        echo "<table><tr><th>新闻标题</th><th>所属类别</th><th>发布时间</th></tr>";
+        foreach ($rs_array as $row) {
+            $title = $row["title"];
+            $catId = $row["catName"];
+            $createTime = $row["createTime"];
+            echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
+        }
+        echo "</table>";
     }
 
     /**
@@ -126,8 +147,9 @@ header("content-type:text/html;charset=utf8");
 echo "ok";
 $ca = new NewsDAO();
 var_dump($ca);
-$ca->displayNewTenNews();
-$ca->displayHotTenNews();
+// $ca->displayNewTenNews();
+// $ca->displayHotTenNews();
+$ca->displayNewsByCatid(6);
 // var_dump($rs_array);
 
  ?>
