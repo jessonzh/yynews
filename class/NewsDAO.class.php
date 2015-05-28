@@ -20,10 +20,10 @@ class NewsDAO
     }
 
     /**
-     * 获取所有新闻，返回一个二维数组
+     * 获取最新的10条新闻，输出一个10行的表格
      * @return [type] [description]
      */
-    public function getNewTenNews()
+    public function displayNewTenNews()
     {
         $rs = mysql_query("select * from news order by createTime desc limit 10", $this->conn);
         if (!$rs) {
@@ -36,10 +36,20 @@ class NewsDAO
         while ($row = mysql_fetch_assoc($rs)) {
             $rs_array[] = $row;
         }
-        // if (!$rs_array) {
-        //     return false;
-        // }
-        return $rs_array;
+        if (!$rs_array) {
+            return false;
+        }
+
+
+    }
+
+    /**
+     * 获取最热门的10条新闻，输出一个20行的表格
+     * @param  string $value [description]
+     * @return [type]        [description]
+     */
+    public function displayHotTenNews()
+    {
 
     }
 
