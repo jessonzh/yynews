@@ -56,7 +56,12 @@ class NewsDAO
      */
     public function displayHotTenNews()
     {
-        $rs = mysql_query("", $this->conn);
+        $rs = mysql_query("select title, catName, news.createTime
+                           from categories, news, comments
+                           where news.catId = categories.catId and news.newsId = comments.newsId
+                           group by comments.newsId
+                           order by count(*) desc
+                           limit 10;", $this->conn);
         if (!$rs) {
             return false;
         }
@@ -80,6 +85,37 @@ class NewsDAO
         echo "</table>";
     }
 
+    /**
+     * 根据类别ID取出该类别下的所有新闻
+     * @param  [type] $catId [description]
+     * @return [type]        [description]
+     */
+    public function displayNewsByCatid($catId)
+    {
+
+    }
+
+    /**
+     * 根据新闻ID取出该条新闻主体内容
+     * @param  [type] $newsId [description]
+     * @return [type]         [description]
+     */
+    public function displayNewsByNewsid($newsId)
+    {
+
+    }
+
+    /**
+     * 增加新闻
+     * @param [type] $title      [description]
+     * @param [type] $content    [description]
+     * @param [type] $createTime [description]
+     * @param [type] $catId      [description]
+     */
+    public function addNews($title, $content, $createTime, $catId)
+    {
+
+    }
 }
 
 
@@ -90,7 +126,8 @@ header("content-type:text/html;charset=utf8");
 echo "ok";
 $ca = new NewsDAO();
 var_dump($ca);
-$rs_array=$ca->displayNewTenNews();
+$ca->displayNewTenNews();
+$ca->displayHotTenNews();
 // var_dump($rs_array);
 
  ?>
