@@ -161,9 +161,11 @@ class NewsDAO
      */
     public function insertNews($title, $content, $createTime, $catId)
     {
-        $sql = "insert into news(title, content, createTime, catId) values('$title', '$content', $createTime, $catId)";
-        mysql_query($sql, $this->conn);
-        $id = mysql_insert_id($this->conn);
+        $sql = "insert into news(title, content, createTime, catId) values('$title', '$content', $createTime, $catId);";
+        if (mysql_query($sql, $this->conn)) {
+            $id = mysql_insert_id($this->conn);
+            echo "ok";
+        }
         mysql_close($this->conn);
         return $id;
     }
@@ -180,7 +182,7 @@ var_dump($ca);
 // $ca->displayNewTenNews();
 // $ca->displayHotTenNews();
 // $ca->displayNewsByNewsid(6);
-var_dump($ca->insertNews('测试', '测试新闻测试测试新闻测试新闻', 20150529, 1));
+// var_dump($ca->insertNews('标题竟然要唯一，这是什么鬼？？？', '测试新闻新闻', 20150528, 2));
 // var_dump($rs_array);
 
  ?>

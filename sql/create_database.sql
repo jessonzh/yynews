@@ -8,7 +8,7 @@ create table categories (
 )charset utf8;
 
 create table news (
-    newId int AUTO_INCREMENT primary key,
+    newsId int AUTO_INCREMENT primary key,
     title varchar(100) not null unique,
     content text not null,
     createTime int not null,
