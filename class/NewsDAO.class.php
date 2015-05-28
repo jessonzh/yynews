@@ -39,19 +39,14 @@ class NewsDAO
         if (!$rs_array) {
             return false;
         }
-        return $rs_array;
         echo "<table><tr><th>新闻标题</th><th>所属类别</th><th>发布时间</th></tr>";
         foreach ($rs_array as $row) {
             $title = $row["title"];
             $catId = $row["catName"];
             $createTime = $row["createTime"];
-
-            echo "<tr>";
-            echo "";
-            echo "</tr>";
+            echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
-
     }
 
     /**
@@ -61,17 +56,28 @@ class NewsDAO
      */
     public function displayHotTenNews()
     {
-
-    }
-
-    /**
-     * 将二维表的标题
-     * @param  [type] $rs_array [description]
-     * @return [type]           [description]
-     */
-    public function displayNews($rs_array)
-    {
-
+        $rs = mysql_query("", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        echo "<table><tr><th>新闻标题</th><th>所属类别</th><th>发布时间</th></tr>";
+        foreach ($rs_array as $row) {
+            $title = $row["title"];
+            $catId = $row["catName"];
+            $createTime = $row["createTime"];
+            echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
+        }
+        echo "</table>";
     }
 
 }
@@ -85,6 +91,6 @@ echo "ok";
 $ca = new NewsDAO();
 var_dump($ca);
 $rs_array=$ca->displayNewTenNews();
-var_dump($rs_array);
+// var_dump($rs_array);
 
  ?>
