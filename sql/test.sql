@@ -8,4 +8,3 @@ insert into news(title, content, createTime, catId) values('军事新闻20150511
 insert into news(title, content, createTime, catId) values('军事新闻20150515', '军事新闻20150515军事新闻20150515军事新闻20150515', 20150515, 6);
 insert into news(title, content, createTime, catId) values('体育新闻20150515', '体育新闻20150515体育新闻20150515体育新闻20150515', 20150515, 1);
 insert into news(title, content, createTime, catId) values('体育新闻20150511', '体育新闻20150511体育新闻20150511体育新闻20150511', 20150511, 1);
-insert into news(title, content, createTime, catId) values('体育新闻20150514', '体育新闻20150514体育新闻20150514体育新闻20150514', 20150514, 1);
