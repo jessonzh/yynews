@@ -207,10 +207,23 @@ class NewsDAO
         mysql_close($this->conn);
     }
 
-
+    /**
+     * 删除新闻
+     * TODO:需要级联删除评论，未完成
+     * @param  [type] $newsId [description]
+     * @return [type]         [description]
+     */
     public function deleteRow($newsId)
     {
-
+        $sql = "delete from news where newsId = $newsId";
+        $del = false;
+        if (mysql_query($sql, $this->conn)) {
+            $del = true;
+        } else {
+            $del = false;
+        }
+        return $del;
+        mysql_close($this->conn);
     }
 }
 
