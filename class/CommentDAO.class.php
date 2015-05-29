@@ -45,9 +45,47 @@ class CommentDAO
             $content = $row["content"];
             $createTime = $row["createTime"];
             $userIP = $row["userIP"];
-            echo "<tr><td>$content</td><td>$createTime</td><td>$userIP</td></tr>";
+            echo "<tr><td>$content</td><td>$userIP</td><td>$createTime</td></tr>";
         }
         echo "</table>";
+        mysql_close($this->conn);
+    }
+
+    /**
+     * 添加新闻
+     * @param  [type] $content    [description]
+     * @param  [type] $createTime [description]
+     * @param  [type] $userIP     [description]
+     * @param  [type] $newsId     [description]
+     * @return [type]             [description]
+     */
+    public function insertComment($content, $createTime, $userIP, $newsId)
+    {
+        $sql = "insert into comments(content, createTime, userIP, newsId) values('$content', $createTime, '$userIP', $newsId);";
+        mysql_query($sql, $this->conn);
+        if (mysql_affected_rows() != -1) {
+            return true;
+        } else {
+            return false;
+        }
+        mysql_close($this->conn);
+    }
+
+    /**
+     * 删除评论
+     * @param  [type] $commId [description]
+     * @return [type]         [description]
+     */
+    public function deleteComment($commId)
+    {
+        $sql = "delete from comments where commId = $commId";
+        $del = false;
+        if (mysql_query($sql, $this->conn)) {
+            $del = true;
+        } else {
+            $del = false;
+        }
+        return $del;
         mysql_close($this->conn);
     }
 
@@ -60,6 +98,7 @@ header("content-type:text/html;charset=utf8");
 echo "ok";
 $ca = new CommentDAO();
 var_dump($ca);
-$ca->displayComments(2);
-
+// $ca->insertComment('测试评论', 20150528, '123.123.123.123', 2);
+// $ca->displayComments(2);
+// $ca->deleteComment(24);
  ?>

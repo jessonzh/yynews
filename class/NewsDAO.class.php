@@ -233,7 +233,7 @@ class NewsDAO
      * @param  [type] $newsId [description]
      * @return [type]         [description]
      */
-    public function deleteRow($newsId)
+    public function deleteNews($newsId)
     {
         $sql = "delete from news where newsId = $newsId";
         $del = false;
