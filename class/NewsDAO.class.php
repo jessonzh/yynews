@@ -162,12 +162,49 @@ class NewsDAO
     public function insertNews($title, $content, $createTime, $catId)
     {
         $sql = "insert into news(title, content, createTime, catId) values('$title', '$content', $createTime, $catId);";
-        if (mysql_query($sql, $this->conn)) {
-            $id = mysql_insert_id($this->conn);
-            echo "ok";
+        mysql_query($sql, $this->conn);
+        if (mysql_affected_rows() != -1) {
+            return true;
+        } else {
+            return false;
         }
         mysql_close($this->conn);
-        return $id;
+    }
+
+    /**
+     * 更改新闻的标题
+     * @param  [type] $newsId [description]
+     * @param  [type] $title  [description]
+     * @return [type]         [description]
+     */
+    public function updateNewsTitle($newsId, $title)
+    {
+        $sql = "update news set title = '$title' where newsId = $newsId";
+        mysql_query($sql, $this->conn);
+        if (mysql_affected_rows() != -1) {
+            return true;
+        } else {
+            return false;
+        }
+        mysql_close($this->conn);
+    }
+
+    /**
+     * 更改新闻的内容
+     * @param  [type] $newsId  [description]
+     * @param  [type] $content [description]
+     * @return [type]          [description]
+     */
+    public function updateNewsContent($newsId, $content)
+    {
+        $sql = "update news set title = '$title' where newsId = $newsId";
+        mysql_query($sql, $this->conn);
+        if (mysql_affected_rows() != -1) {
+            return true;
+        } else {
+            return false;
+        }
+        mysql_close($this->conn);
     }
 }
 
