@@ -197,7 +197,7 @@ class NewsDAO
      */
     public function updateNewsContent($newsId, $content)
     {
-        $sql = "update news set title = '$title' where newsId = $newsId";
+        $sql = "update news set content = '$content' where newsId = $newsId";
         mysql_query($sql, $this->conn);
         if (mysql_affected_rows() != -1) {
             return true;
@@ -205,6 +205,12 @@ class NewsDAO
             return false;
         }
         mysql_close($this->conn);
+    }
+
+
+    public function deleteRow($newsId)
+    {
+
     }
 }
 
