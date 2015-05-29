@@ -153,6 +153,26 @@ class NewsDAO
     }
 
     /**
+     * 根据标题搜索新闻
+     * @param  [type] $title [description]
+     * @return [type]        [description]
+     */
+    public function searchNewsByTitle($title)
+    {
+        # code...
+    }
+
+    /**
+     * 根据内容搜索新闻
+     * @param  [type] $content [description]
+     * @return [type]          [description]
+     */
+    public function searchNewsByContent($content)
+    {
+        # code...
+    }
+
+    /**
      * 增加新闻
      * @param [type] $title      [description]
      * @param [type] $content    [description]
