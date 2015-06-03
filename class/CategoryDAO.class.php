@@ -3,7 +3,7 @@
  * 功能：操作新闻的类别
  */
 
-require_once './DbConnect.class.php';
+// require_once './DbConnect.class.php';
 
 class CategoryDAO
 {
@@ -49,13 +49,13 @@ class CategoryDAO
             echo "error!";
             return;
         }
-        echo "<ul>";
+        // echo "<ul>";
         foreach ($rs_array as $row) {
             $id = $row["catId"];
             $name = $row["catName"];
             echo "<li><a href=\"#\">$name</a></li>";
         }
-        echo "</ul>";
+        // echo "</ul>";
         @mysql_close($this->conn);
     }
 
@@ -181,6 +181,7 @@ header("content-type:text/html;charset=utf8");
 echo "ok";
 $ca = new CategoryDAO();
 var_dump($ca);
+
 $rs_array=$ca->getCategories();
 var_dump($rs_array);
 $ca->displayCategories($rs_array);

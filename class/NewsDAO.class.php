@@ -3,7 +3,7 @@
  * 功能：操作新闻
  */
 
-require_once './DbConnect.class.php';
+require_once './class/DbConnect.class.php';
 
 class NewsDAO
 {
@@ -297,10 +297,10 @@ class NewsDAO
 /**
  * 测试代码
  */
-header("content-type:text/html;charset=utf8");
-echo "ok";
-$ca = new NewsDAO();
-var_dump($ca);
+// header("content-type:text/html;charset=utf8");
+// echo "ok";
+// $ca = new NewsDAO();
+// var_dump($ca);
 // $ca->displayNewTenNews();
 // $ca->displayHotTenNews();
 // $ca->displayNewsByNewsid(6);
