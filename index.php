@@ -14,7 +14,6 @@
     require ('./inc/header.inc');
     require_once './class/Db.conf.php';
     require_once './class/DbConnect.class.php';
-    require_once './class/CategoryDAO.class.php';
      ?>
 
 <!-- main部分开始 -->
@@ -24,6 +23,7 @@
             <ul>
                 <li><a href="./index.php">首&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页</a></li>
                 <?php
+                    require_once './class/CategoryDAO.class.php';
                     $ca = new CategoryDAO();
                     $ca->displayCategories($ca->getCategories());
                  ?>

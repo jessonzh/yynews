@@ -96,7 +96,7 @@ class NewsDAO
      */
     public function displayNewsByCatid($catId)
     {
-        $rs = mysql_query("select title, catName, createTime from news, categories where (news.catId = categories.catId) and (news.catId = $catId) order by createTime desc limit 20", $this->conn);
+        $rs = mysql_query("select newsId, title, catName, createTime from news, categories where (news.catId = categories.catId) and (news.catId = $catId) order by createTime desc limit 20", $this->conn);
         if (!$rs) {
             return false;
         }
@@ -112,10 +112,11 @@ class NewsDAO
         }
         echo "<table><tr><th>新闻标题</th><th>所属类别</th><th>发布时间</th></tr>";
         foreach ($rs_array as $row) {
+            $newsId = $row["newsId"];
             $title = $row["title"];
             $catId = $row["catName"];
             $createTime = $row["createTime"];
-            echo "<tr><td>$title</td><td>$catId</td><td>$createTime</td></tr>";
+            echo "<tr><td><a href=\"../news_content.php?newsId=$newsId\">$title</a></td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
         mysql_close($this->conn);

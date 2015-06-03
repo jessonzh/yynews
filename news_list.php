@@ -12,6 +12,8 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
@@ -19,22 +21,29 @@
         <div id="categories">
             <div class="title">新闻分类</div>
             <ul>
-                <li><a href="./index.php">首页</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
+                <li><a href="./index.php">首&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页</a></li>
+                <?php
+                    require_once './class/CategoryDAO.class.php';
+                    $ca = new CategoryDAO();
+                    $ca->displayCategories($ca->getCategories());
+                 ?>
             </ul>
         </div>
         <div id="newslist">
-            <div class="title">从前一页获取新闻类别</div>
+            <div class="title">
+                <?php
+                    require_once './class/CategoryDAO.class.php';
+                    $news = new CategoryDAO();
+                    $str = $news->getCatnameById($_GET["catId"]);
+                    echo "$str";
+                 ?>
+            </div>
             <div id="content">
-                查询内容
+                <?php
+                    require_once './class/NewsDAO.class.php';
+                    $news = new NewsDAO();
+                    $news->displayNewsByCatid($_GET["catId"]);
+                 ?>
             </div>
         </div>
     </div>
