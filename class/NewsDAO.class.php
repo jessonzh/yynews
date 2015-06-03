@@ -159,7 +159,30 @@ class NewsDAO
      */
     public function searchNewsByTitle($title)
     {
-        # code...
+        $rs = mysql_query("select title, content, createTime from news where title like '%$title%';", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        // return $rs_array;
+        echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
+        foreach ($rs_array as $row) {
+            $title = $row["title"];
+            $content = $row["content"];
+            $createTime = $row["createTime"];
+            echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+        }
+        echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -169,7 +192,30 @@ class NewsDAO
      */
     public function searchNewsByContent($content)
     {
-        # code...
+        $rs = mysql_query("select title, content, createTime from news where content like '%$content%';", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        // return $rs_array;
+        echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
+        foreach ($rs_array as $row) {
+            $title = $row["title"];
+            $content = $row["content"];
+            $createTime = $row["createTime"];
+            echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+        }
+        echo "</table>";
+        mysql_close($this->conn);
     }
 
     /**
@@ -260,5 +306,6 @@ var_dump($ca);
 // $ca->displayNewsByNewsid(6);
 // var_dump($ca->insertNews('标题竟然要唯一，这是什么鬼？？？', '测试新闻新闻', 20150528, 2));
 // var_dump($rs_array);
+// $ca->searchNewsByContent('美国');
 
  ?>
