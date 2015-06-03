@@ -1,5 +1,7 @@
 <?php
-//功能：连接到数据库
+/**
+ * 功能：连接到数据库
+ */
 
 require_once './Db.conf.php';
 date_default_timezone_set(TIMEZONE);
