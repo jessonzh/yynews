@@ -200,7 +200,32 @@ class NewsDAO
      */
     public function searchNewsByContent($content)
     {
-        $rs = mysql_query("select title, content, createTime from news where content like '%$content%';", $this->conn);
+        // $rs = mysql_query("select title, content, createTime from news where content like '%$content%';", $this->conn);
+        // if (!$rs) {
+        //     return false;
+        // }
+        // if (mysql_num_rows($rs) == 0) {
+        //     return false;
+        // }
+        // $rs_array = array();
+        // while ($row = mysql_fetch_assoc($rs)) {
+        //     $rs_array[] = $row;
+        // }
+        // if (!$rs_array) {
+        //     return false;
+        // }
+        // // return $rs_array;
+        // echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
+        // foreach ($rs_array as $row) {
+        //     $title = $row["title"];
+        //     $content = $row["content"];
+        //     $createTime = $row["createTime"];
+        //     echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+        // }
+        // echo "</table>";
+        // mysql_close($this->conn);
+
+        $rs = mysql_query("select newsId, title, catName, createTime from news, categories where (content like '%$content%') and (news.catId = categories.catId) order by createTime desc limit 10", $this->conn);
         if (!$rs) {
             return false;
         }
@@ -214,13 +239,13 @@ class NewsDAO
         if (!$rs_array) {
             return false;
         }
-        // return $rs_array;
-        echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
+        echo "<table><tr><th>新闻标题</th><th>所属类别</th><th>发布时间</th></tr>";
         foreach ($rs_array as $row) {
+            $newsId = $row["newsId"];
             $title = $row["title"];
-            $content = $row["content"];
+            $catId = $row["catName"];
             $createTime = $row["createTime"];
-            echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+            echo "<tr><td><a href=\"../news_content.php?newsId=$newsId\">$title</a></td><td>$catId</td><td>$createTime</td></tr>";
         }
         echo "</table>";
         mysql_close($this->conn);
