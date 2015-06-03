@@ -3,6 +3,12 @@
     background-color: #EDEDFE;
 }
 
+#main p {
+    font-size: 40px;
+    padding: 40px 0px;
+    text-align: center;
+    font-family: '微软雅黑';
+}
 
 .title {
     line-height: 30px;

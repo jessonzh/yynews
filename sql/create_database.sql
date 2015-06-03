@@ -22,3 +22,9 @@ create table comments (
     userIP char(15) not null,
     newsId int
 )charset utf8;
+
+create table users (
+    userId int AUTO_INCREMENT primary key,
+    userName char(16) not null,
+    passWord char(16) not null
+)charset utf8;
