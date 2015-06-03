@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 首页</title>
+    <title>云影新闻网 | 搜索结果</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
@@ -12,12 +12,18 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
     <div id="main">
         <div class="title">搜索结果</div>
-        输出搜索结果
+        <?php
+            require_once './class/NewsDAO.class.php';
+            $news = new NewsDAO();
+            $news->searchNewsByTitle('军事');
+         ?>
     </div>
 <!-- main部分结束 -->
 

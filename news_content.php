@@ -48,9 +48,8 @@
                         $comm = new CommentDAO();
                         $time = date("Ymd");
                         $comm->insertComment($_POST['content'], $time, $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
-                        echo "<script type=\"text/javascript\">location.href=\"./news_content.php?newsId=".$_GET[newsId]."\";</script>";
-                        // echo $_GET[newsId];
-                        // echo "\";</script>";
+                        echo "<script type=\"text/javascript\">location.href=\"./news_content.php?newsId=".$_GET["newsId"]."\";</script>";
+                        //使用了JavaScript强制刷新页面，使得刚刚评论的能够显示
                     }
                  ?>
             </div>
