@@ -13,3 +13,6 @@ js文件夹 | 存放页面对应的JavaScript文件
 sql文件夹 | 存放sql文件
 inc文件夹 | 存放header和footer
 根目录 | 运行的php、html文件
+
+## Warning!!!
+这个写的也不一定都对，感觉 CSS 那部分写的代码重复率很高，前端的没学好。
