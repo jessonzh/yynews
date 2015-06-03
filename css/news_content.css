@@ -2,7 +2,18 @@
     width: 1004px;
     height: 400px;
     background-color: #EDEDFE;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    line-height: 30px;
 }
+
+#createTime {
+    text-align: center;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    margin-top: 5px;
+}
+
 #comments {
     width: 1004px;
     height: 400px;

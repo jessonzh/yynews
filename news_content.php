@@ -12,17 +12,26 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
     <div id="main">
         <div id="newscontent">
-            <div class="title">新闻标题：实际的新闻标题</div>
-            输出实际的新闻内容
+            <?php
+                require_once './class/NewsDAO.class.php';
+                $news = new NewsDAO();
+                $news->displayNewsByNewsid($_GET["newsId"]);
+             ?>
         </div>
         <div id="comments">
             <div class="title">新闻评论</div>
-            输出实际的新闻评论
+            <?php
+                require_once './class/CommentDAO.class.php';
+                $comment = new CommentDAO();
+
+             ?>
             <div id="addcomments">
                 <form action="class/" method="post">
                     <p>添加评论</p>

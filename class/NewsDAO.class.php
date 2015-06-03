@@ -144,14 +144,19 @@ class NewsDAO
             return false;
         }
         // return $rs_array;
-        echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
+        // echo "<table><tr><th>新闻标题</th><th>内容</th><th>发布时间</th></tr>";
         foreach ($rs_array as $row) {
             $title = $row["title"];
             $content = $row["content"];
             $createTime = $row["createTime"];
-            echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+            // echo "<tr><td>$title</td><td>$content</td><td>$createTime</td></tr>";
+            echo "<div class=\"title\">";
+            echo $title;
+            echo "</div>";
+            echo "<div id=\"createTime\">发布时间：$createTime</div>";
+            echo $content;
         }
-        echo "</table>";
+        // echo "</table>";
         mysql_close($this->conn);
     }
 
