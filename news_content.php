@@ -33,11 +33,21 @@
                 $comment->displayComments($_GET["newsId"]);
              ?>
             <div id="addcomments">
-                <form action="class/" method="post">
+                <?php
+                    if (!isset($_POST['content'])) {
+                 ?>
+                <form action="./news_content.php" method="post">
                     <p>添加评论</p>
                     <textarea name="comment" rows="5" cols="50"></textarea>
                     <p><input id="sub" type="submit" value="提交"></p>
                 </form>
+                <?php
+                    } elseif {
+                        require_once './class/CommentDAO.class.php';
+                        $comment = new CommentDAO();
+
+                    }
+                 ?>
             </div>
         </div>
     </div>
