@@ -3,7 +3,7 @@
  * 功能：操作新闻的评论
  */
 
-require_once './DbConnect.class.php';
+// require_once './DbConnect.class.php';
 
 class CommentDAO
 {
@@ -94,10 +94,10 @@ class CommentDAO
 /**
  * 测试代码
  */
-header("content-type:text/html;charset=utf8");
-echo "ok";
-$ca = new CommentDAO();
-var_dump($ca);
+// header("content-type:text/html;charset=utf8");
+// echo "ok";
+// $ca = new CommentDAO();
+// var_dump($ca);
 // $ca->insertComment('测试评论', 20150528, '123.123.123.123', 2);
 // $ca->displayComments(2);
 // $ca->deleteComment(24);

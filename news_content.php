@@ -30,13 +30,13 @@
             <?php
                 require_once './class/CommentDAO.class.php';
                 $comment = new CommentDAO();
-
+                $comment->displayComments($_GET["newsId"]);
              ?>
             <div id="addcomments">
                 <form action="class/" method="post">
                     <p>添加评论</p>
-                    <textarea name="comment" rows="10" cols="50"></textarea>
-                    <p><input type="submit" value="提交"></p>
+                    <textarea name="comment" rows="5" cols="50"></textarea>
+                    <p><input id="sub" type="submit" value="提交"></p>
                 </form>
             </div>
         </div>

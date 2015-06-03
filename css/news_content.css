@@ -20,6 +20,23 @@
     background-color: #EDEDFE;
 }
 
+#addcomments {
+    text-align: center;
+}
+
+#addcomments p {
+    margin: 10px;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+
+#sub {
+    font-size: 16px;
+    line-height: 25px;
+    font-family: '微软雅黑';
+    padding: 0px 20px;
+}
+
 .title {
     line-height: 30px;
     background-color: #509CBB;
@@ -29,3 +46,29 @@
     font-size: 16px;
 }
 
+table
+{
+    font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+    width: 96%;
+    border-collapse:collapse;
+    margin-top: 3px;
+    margin-left: 2%;
+}
+
+table td, table th
+{
+    font-size: 14px;
+    line-height: 22px;
+    border:1px solid #BABABA;
+    font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+table th
+{
+    font-size: 16px;
+    text-align:center;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#DCDCDC;
+}
