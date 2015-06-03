@@ -26,7 +26,7 @@ class CommentDAO
      */
     public function displayComments($newsId)
     {
-        $rs = mysql_query("select content, createTime, userIP from comments where newsId = $newsId order by createTime desc", $this->conn);
+        $rs = mysql_query("select content, createTime, userIP from comments where newsId = $newsId order by createTime desc limit 6", $this->conn);
         if (!$rs) {
             return false;
         }

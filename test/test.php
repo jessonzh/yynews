@@ -1,20 +1,10 @@
 <?php
-function get_real_ip(){
-    $ip=false;
-    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-        $ip=$_SERVER['HTTP_CLIENT_IP'];
-    }
-    if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-        $ips=explode (', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
-        if($ip){ array_unshift($ips, $ip); $ip=FALSE; }
-        for ($i=0; $i < count($ips); $i++){
-            if(!eregi ('^(10│172.16│192.168).', $ips[$i])){
-                $ip=$ips[$i];
-                break;
-            }
-        }
-    }
-    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
-}
-echo get_real_ip();
+    print_r($_GET);
+    print_r($_POST);
 ?>
+
+<form action="test.php?id=100" method="post">
+姓名:<input type="text" name="name" /><br>
+年龄:<input type="text" name="age" /><br>
+<input type="submit" value="提交" />
+</form>

@@ -36,16 +36,18 @@
                 <?php
                     if (!isset($_POST['content'])) {
                  ?>
-                <form action="./news_content.php" method="post">
+                <form action="./news_content.php?newsId=<?php echo $_GET["newsId"]; ?>" method="post">
                     <p>添加评论</p>
-                    <textarea name="comment" rows="5" cols="50"></textarea>
+                    <textarea name="content" rows="5" cols="100"></textarea>
                     <p><input id="sub" type="submit" value="提交"></p>
                 </form>
                 <?php
-                    } elseif {
+                    } elseif(isset($_POST['content'])) {
+                        echo "谢谢评论！";
                         require_once './class/CommentDAO.class.php';
-                        $comment = new CommentDAO();
-
+                        $comm = new CommentDAO();
+                        $time = date("Ymd");
+                        $comm->insertComment($_POST['content'], $time, $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
                     }
                  ?>
             </div>
