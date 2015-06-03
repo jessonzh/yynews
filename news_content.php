@@ -43,11 +43,14 @@
                 </form>
                 <?php
                     } elseif(isset($_POST['content'])) {
-                        echo "谢谢评论！";
+                        // echo "谢谢评论！";
                         require_once './class/CommentDAO.class.php';
                         $comm = new CommentDAO();
                         $time = date("Ymd");
                         $comm->insertComment($_POST['content'], $time, $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
+                        echo "<script type=\"text/javascript\">location.href=\"./news_content.php?newsId=".$_GET[newsId]."\";</script>";
+                        // echo $_GET[newsId];
+                        // echo "\";</script>";
                     }
                  ?>
             </div>
