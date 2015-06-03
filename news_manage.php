@@ -43,11 +43,16 @@
                 <div class="title">新闻管理</div>
                 输出新闻表格
                 <form action="./class/" method="post">
-                    所属类别&nbsp&nbsp<select name="category"><option value="1">体育新闻</option></select><!-- 需要查询数据库 -->
+                    所属类别&nbsp&nbsp
+                    <?php
+                        require_once './class/CategoryDAO.class.php';
+                        $ca = new CategoryDAO();
+                        $ca->optionCategories($ca->getCategories());
+                     ?>
                     <p>新闻标题</p>
-                    <textarea name="newstitle" rows="2" cols="50"></textarea>
+                    <textarea name="newstitle" rows="2" cols="100"></textarea>
                     <p>新闻内容</p>
-                    <textarea name="newscontent" rows="10" cols="50"></textarea>
+                    <textarea name="newscontent" rows="10" cols="100"></textarea>
                     <p><input type="submit" value="添加新闻"></p>
                 </form>
             </div>
