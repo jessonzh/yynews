@@ -53,7 +53,7 @@ class CategoryDAO
         foreach ($rs_array as $row) {
             $id = $row["catId"];
             $name = $row["catName"];
-            echo "<li><a href=\"#\">$name</a></li>";
+            echo "<li><a href=\"../news_list.php?catId=$id\">$name</a></li>";
         }
         // echo "</ul>";
         @mysql_close($this->conn);
