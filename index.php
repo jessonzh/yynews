@@ -12,6 +12,9 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    // require_once './class/Db.conf.php';
+    // require_once './class/DbConnect.class.php';
+    require_once './class/CategoryDAO.class.php';
      ?>
 
 <!-- main部分开始 -->
@@ -20,15 +23,10 @@
             <div class="title">新闻分类</div>
             <ul>
                 <li><a href="./index.php">首&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
-                <li><a href="">分类新闻</a></li>
+                <?php
+                    $caList = new CategoryDAO();
+                    $caList->displayCategories($caList->getCategories());
+                 ?>
             </ul>
         </div>
         <div id="newten">
