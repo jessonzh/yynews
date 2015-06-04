@@ -30,6 +30,11 @@
     font-family: '微软雅黑';
 }
 
+#think {
+    margin-top: 50px;
+    text-align: center;
+}
+
 #sub {
     font-size: 16px;
     line-height: 25px;

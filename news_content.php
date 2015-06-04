@@ -30,6 +30,9 @@
             <?php
                 require_once './class/CommentDAO.class.php';
                 $comment = new CommentDAO();
+                if (isset($_POST['content'])) {
+                    $comment->insertComment($_POST['content'], date("Ymd"), $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
+                }
                 $comment->displayComments($_GET["newsId"]);
              ?>
             <div id="addcomments">
@@ -42,13 +45,13 @@
                     <p><input id="sub" type="submit" value="提交"></p>
                 </form>
                 <?php
-                    } elseif(isset($_POST['content'])) {
-                        // echo "谢谢评论！";
-                        require_once './class/CommentDAO.class.php';
-                        $comm = new CommentDAO();
-                        $time = date("Ymd");
-                        $comm->insertComment($_POST['content'], $time, $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
-                        echo "<script type=\"text/javascript\">location.href=\"./news_content.php?newsId=".$_GET["newsId"]."\";</script>";
+                    } else {
+                        echo "<p id=\"think\">谢谢评论！</p>";
+                        // require_once './class/CommentDAO.class.php';
+                        // $comm = new CommentDAO();
+                        // $time = date("Ymd");
+                        // $comm->insertComment($_POST['content'], $time, $_SERVER["REMOTE_ADDR"], $_GET["newsId"]);
+                        // echo "<script type=\"text/javascript\">location.href=\"./news_content.php?newsId=".$_GET["newsId"]."\";</script>";
                         //使用了JavaScript强制刷新页面，使得刚刚评论的能够显示
                     }
                  ?>

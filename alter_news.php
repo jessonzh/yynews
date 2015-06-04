@@ -29,19 +29,23 @@
         </div>
         <div id="newsmanage">
             <div class="title">新闻编辑</div>
-
-            <form action="./#" method="post">
+            <form action="./alter_news.php?newsId=<?php echo $_GET["newsId"]; ?>" method="post">
                 所属类别&nbsp&nbsp
                 <?php
                     require_once './class/CategoryDAO.class.php';
                     $ca = new CategoryDAO();
                     $ca->optionCategories($ca->getCategories());
-                    echo $_GET["newsId"];
+                    require_once './class/NewsDAO.class.php';
+                    $news = new NewsDAO();
+                    if (isset($_POST["newstitle"]) and isset($_POST["newscontent"])) {
+                        $news->updateNews($_GET["newsId"], $_POST["newstitle"], $_POST["newscontent"], date("Ymd"), $_POST[category]);
+                    }
+                    $news = $news->newsContent($_GET["newsId"]);
                  ?>
                 <p>新闻标题</p>
-                <textarea name="newstitle" rows="2" cols="100"></textarea>
+                <textarea name="newstitle" rows="2" cols="100"><?php echo $news["title"]; ?></textarea>
                 <p>新闻内容</p>
-                <textarea name="newscontent" rows="10" cols="100"></textarea>
+                <textarea name="newscontent" rows="10" cols="100"><?php echo $news["content"]; ?></textarea>
                 <p><input type="submit" value="提交新闻"></p>
             </form>
         </div>

@@ -70,7 +70,7 @@ class CategoryDAO
             echo "error!";
             return;
         }
-        echo "<select name=\"catName\">";
+        echo "<select name=\"category\">";
         foreach ($rs_array as $row) {
             $id = $row["catId"];
             $name = $row["catName"];

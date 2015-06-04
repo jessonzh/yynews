@@ -35,9 +35,12 @@
                 if (isset($_GET["newsId"])) {
                     $news->deleteNews($_GET["newsId"]);
                 }
+                if (isset($_POST["category"]) and isset($_POST["newstitle"]) and isset($_POST["newscontent"])) {
+                    $news->insertNews($_POST["newstitle"], $_POST["newscontent"], date("Ymd"), $_POST["category"]);
+                }
                 $news->manageNews();
              ?>
-            <form action="./#" method="post">
+            <form action="./news_manage.php" method="post">
                 所属类别&nbsp&nbsp
                 <?php
                     require_once './class/CategoryDAO.class.php';

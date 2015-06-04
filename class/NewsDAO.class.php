@@ -3,7 +3,7 @@
  * 功能：操作新闻
  */
 
-require_once './class/DbConnect.class.php';
+// require_once './DbConnect.class.php';
 
 class NewsDAO
 {
@@ -283,9 +283,10 @@ class NewsDAO
      * @param  [type] $title  [description]
      * @return [type]         [description]
      */
-    public function updateNewsTitle($newsId, $title)
+    public function updateNews($newsId, $title, $content, $createTime, $catId)
     {
-        $sql = "update news set title = '$title' where newsId = $newsId";
+        $sql = "update news set title = '$title' where newsId = $newsId;
+                update news set title = '$title' where newsId = $newsId;";
         mysql_query($sql, $this->conn);
         if (mysql_affected_rows() != -1) {
             return true;
@@ -331,6 +332,30 @@ class NewsDAO
         return $del;
         mysql_close($this->conn);
     }
+
+    /**
+     * 按查newsId找新闻内容
+     * @param  [type] $newsId [description]
+     * @return [type]         [description]返回内容的数组
+     */
+    public function newsContent($newsId)
+    {
+        $rs = mysql_query("select * from news where newsId = $newsId", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        return $rs_array[0];
+    }
 }
 
 
@@ -341,6 +366,8 @@ class NewsDAO
 // echo "ok";
 // $ca = new NewsDAO();
 // var_dump($ca);
+// var_dump($ca->newsContent(2));
+
 // $ca->displayNewTenNews();
 // $ca->displayHotTenNews();
 // $ca->displayNewsByNewsid(6);
