@@ -48,6 +48,9 @@
                     require_once './class/UserDAO.class.php';
                     $user = new UserDAO();
                     if ($user->passwordIsRight($username, $password)) {
+                        echo "<script type=\"text/javascript\">location.href=\"./news_manage.php\";</script>";
+                    } else {
+                        echo "帐号或密码错误！请重新输入！";
                     }
                 }
             }
