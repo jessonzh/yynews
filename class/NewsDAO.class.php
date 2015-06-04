@@ -52,6 +52,38 @@ class NewsDAO
     }
 
     /**
+     * 管理新闻
+     * @return [type] [description]
+     */
+    public function manageNews()
+    {
+        $rs = mysql_query("select * from news order by createTime desc limit 10", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        $i = 0;
+        echo "<table><tr><th>序号</th><th>新闻标题</th><th>修改</th><th>删除</th></tr>";
+        foreach ($rs_array as $row) {
+            $i = $i + 1;
+            $newsId = $row["newsId"];
+            $title = $row["title"];
+            echo "<tr><td>$i</td><td><a href=\"../news_content.php?newsId=$newsId\">$title</a></td><td><a href=\"../alter_news.php?newsId=$newsId\">修改</a></td><td><a href=\"../news_manage.php?newsId=$newsId\">删除</a></td></tr>";
+        }
+        echo "</table>";
+        mysql_close($this->conn);
+    }
+
+    /**
      * 获取最热门的10条新闻，输出一个20行的表格
      * @param  string $value [description]
      * @return [type]        [description]

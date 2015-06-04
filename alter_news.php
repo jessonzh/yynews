@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>云影新闻网 | 新闻管理</title>
+    <title>云影新闻网 | 新闻编辑</title>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/header.css">
     <link rel="stylesheet" type="text/css" href="./css/footer.css">
@@ -28,27 +28,21 @@
             </ul>
         </div>
         <div id="newsmanage">
-            <div class="title">新闻管理</div>
-            <?php
-                require_once './class/NewsDAO.class.php';
-                $news = new NewsDAO();
-                if (isset($_GET["newsId"])) {
-                    $news->deleteNews($_GET["newsId"]);
-                }
-                $news->manageNews();
-             ?>
+            <div class="title">新闻编辑</div>
+
             <form action="./#" method="post">
                 所属类别&nbsp&nbsp
                 <?php
                     require_once './class/CategoryDAO.class.php';
                     $ca = new CategoryDAO();
                     $ca->optionCategories($ca->getCategories());
+                    echo $_GET["newsId"];
                  ?>
                 <p>新闻标题</p>
                 <textarea name="newstitle" rows="2" cols="100"></textarea>
                 <p>新闻内容</p>
                 <textarea name="newscontent" rows="10" cols="100"></textarea>
-                <p><input type="submit" value="添加新闻"></p>
+                <p><input type="submit" value="提交新闻"></p>
             </form>
         </div>
     </div>
