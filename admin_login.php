@@ -43,7 +43,7 @@
                 trim($username);
                 trim($password);
                 if ((!$username) or (!$password)){
-                    echo "登录失败！";
+                    echo "登录失败！请输入帐号和密码";
                 } else {
                     require_once './class/UserDAO.class.php';
                     $user = new UserDAO();
@@ -55,7 +55,6 @@
                 }
             }
 
-         ?>
          ?>
     </div>
 <!-- main部分结束 -->

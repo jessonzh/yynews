@@ -27,41 +27,23 @@
                 <li><a href="./comments_manage.php">评论管理</a></li>
             </ul>
         </div>
-        <?php
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            trim($username);
-            trim($password);
-            if ((!$username) or (!$password)){
-                echo "登录失败！";
-            } else {
-                require_once './class/UserDAO.class.php';
-                $user = new UserDAO();
-                if ($user->passwordIsRight($username, $password)) {
-         ?>
-            <div id="newsmanage">
-                <div class="title">新闻管理</div>
-                输出新闻表格
-                <form action="./class/" method="post">
-                    所属类别&nbsp&nbsp
-                    <?php
-                        require_once './class/CategoryDAO.class.php';
-                        $ca = new CategoryDAO();
-                        $ca->optionCategories($ca->getCategories());
-                     ?>
-                    <p>新闻标题</p>
-                    <textarea name="newstitle" rows="2" cols="100"></textarea>
-                    <p>新闻内容</p>
-                    <textarea name="newscontent" rows="10" cols="100"></textarea>
-                    <p><input type="submit" value="添加新闻"></p>
-                </form>
-            </div>
-            <?php
-                } else {
-                    echo "密码或帐号错误！";
-                }
-            }
-         ?>
+        <div id="newsmanage">
+            <div class="title">新闻管理</div>
+            输出新闻表格
+            <form action="./#" method="post">
+                所属类别&nbsp&nbsp
+                <?php
+                    require_once './class/CategoryDAO.class.php';
+                    $ca = new CategoryDAO();
+                    $ca->optionCategories($ca->getCategories());
+                 ?>
+                <p>新闻标题</p>
+                <textarea name="newstitle" rows="2" cols="100"></textarea>
+                <p>新闻内容</p>
+                <textarea name="newscontent" rows="10" cols="100"></textarea>
+                <p><input type="submit" value="添加新闻"></p>
+            </form>
+        </div>
     </div>
 <!-- main部分结束 -->
 
