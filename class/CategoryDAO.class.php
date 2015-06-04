@@ -81,6 +81,28 @@ class CategoryDAO
     }
 
     /**
+     * 操作类别
+     * @param  [type] $rs_array [description]
+     * @return [type]           [description]
+     */
+    public function manageCategories($rs_array)
+    {
+        if (!$rs_array) {
+            return false;
+        }
+        $i = 0;
+        echo "<table><tr><th>序号</th><th>类别名称</th><th>操作</th></tr>";
+        foreach ($rs_array as $row) {
+            $i = $i + 1;
+            $catId = $row["catId"];
+            $catName = $row["catName"];
+            echo "<tr><td>$i</td><td>$catName</td><td><a href=\"../categories_manage.php?catId=$catId\">删除</a></td></tr>";
+        }
+        echo "</table>";
+        @mysql_close($this->conn);
+    }
+
+    /**
      * 增加一个类别，传入一个标签名，返回一个是否bool型的变量，判断是否成功
      * @param  [type] $catName [description]
      * @return [type]          [description]

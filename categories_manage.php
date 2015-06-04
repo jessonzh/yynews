@@ -12,6 +12,8 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
@@ -27,11 +29,21 @@
         </div>
         <div id="categoriesmanage">
             <div class="title">类别管理</div>
-            输出类别表格
-            <form action="./class/" method="post">
-                请输入类别名称：
+            <?php
+                require_once './class/CategoryDAO.class.php';
+                $ca = new CategoryDAO();
+                if (isset($_GET["catId"])) {
+                    $ca->deleteRow($_GET["catId"]);
+                }
+                if (isset($_POST["category"])) {
+                    $ca->insertCategories($_POST["category"]);
+                }
+                $ca->manageCategories($ca->getCategories());
+             ?>
+            <form action="./categories_manage.php" method="post">
+                <p id="insert">请输入类别名称：
                 <input type="text" name="category">
-                <input type="submit" value="增加类别">
+                <input type="submit" value="增加类别"></p>
             </form>
         </div>
     </div>

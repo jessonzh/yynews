@@ -89,7 +89,10 @@ class CommentDAO
         mysql_close($this->conn);
     }
 
-
+    public function manageComments($value='')
+    {
+        # code...
+    }
 }
 /**
  * 测试代码
