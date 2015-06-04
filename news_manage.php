@@ -38,7 +38,7 @@
                 require_once './class/UserDAO.class.php';
                 $user = new UserDAO();
                 if ($user->passwordIsRight($username, $password)) {
-             ?>
+         ?>
             <div id="newsmanage">
                 <div class="title">新闻管理</div>
                 输出新闻表格

@@ -12,12 +12,17 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
     <div id="main">
         <div class="title">管理员登录</div>
-        <form action="./news_manage.php" method="post">
+        <?php
+            if (!isset($_POST["username"]) and !isset($_POST["password"])) {
+         ?>
+        <form action="./admin_login.php" method="post">
             <table>
                 <tr>
                     <td>Username</td>
@@ -31,6 +36,24 @@
             <p><a href="#">忘记密码</a></p>
             <p><input type="submit" value="登录"></p>
         </form>
+        <?php
+            } elseif (isset($_POST["username"]) and isset($_POST["password"])) {
+                $username = $_POST["username"];
+                $password = $_POST["password"];
+                trim($username);
+                trim($password);
+                if ((!$username) or (!$password)){
+                    echo "登录失败！";
+                } else {
+                    require_once './class/UserDAO.class.php';
+                    $user = new UserDAO();
+                    if ($user->passwordIsRight($username, $password)) {
+                    }
+                }
+            }
+
+         ?>
+         ?>
     </div>
 <!-- main部分结束 -->
 
