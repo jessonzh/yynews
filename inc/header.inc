@@ -1,5 +1,5 @@
 <div id="header">
-    <img id="logo" src="../images/logo.png" alt="">
+    <a href="../index.php"><img id="logo" src="../images/logo.png" alt=""></a>
     <div id="search">
         <form action="../search_result.php" method="post">
             <input type="radio" name="newstype" value="title" checked="true">按标题

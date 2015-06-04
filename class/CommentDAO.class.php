@@ -89,9 +89,37 @@ class CommentDAO
         mysql_close($this->conn);
     }
 
-    public function manageComments($value='')
+    /**
+     * 操作评论
+     * @param  string $value [description]
+     * @return [type]        [description]
+     */
+    public function manageComments()
     {
-        # code...
+        $rs = mysql_query("select * from comments order by createTime desc limit 10", $this->conn);
+        if (!$rs) {
+            return false;
+        }
+        if (mysql_num_rows($rs) == 0) {
+            return false;
+        }
+        $rs_array = array();
+        while ($row = mysql_fetch_assoc($rs)) {
+            $rs_array[] = $row;
+        }
+        if (!$rs_array) {
+            return false;
+        }
+        $i = 0;
+        echo "<table><tr><th>序号</th><th>评论者</th><th>操作</th></tr>";
+        foreach ($rs_array as $row) {
+            $i = $i + 1;
+            $userIP = $row["userIP"];
+            $commId = $row["commId"];
+            echo "<tr><td>$i</td><td>$userIP</td><td><a href=\"./comments_manage.php?commId=$commId\">删除</a></td></tr>";
+        }
+        echo "</table>";
+        mysql_close($this->conn);
     }
 }
 /**

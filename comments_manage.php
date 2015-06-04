@@ -12,6 +12,8 @@
 <div id="container">
     <?php
     require ('./inc/header.inc');
+    require_once './class/Db.conf.php';
+    require_once './class/DbConnect.class.php';
      ?>
 
 <!-- main部分开始 -->
@@ -27,9 +29,14 @@
         </div>
         <div id="commentmanage">
             <div class="title">评论管理</div>
-            输出评论表格
-
-
+            <?php
+                require_once './class/CommentDAO.class.php';
+                $comm = new CommentDAO();
+                if (isset($_GET["commId"])) {
+                    $comm->deleteComment($_GET["commId"]);
+                }
+                $comm->manageComments();
+             ?>
         </div>
     </div>
 <!-- main部分结束 -->
