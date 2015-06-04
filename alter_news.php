@@ -38,14 +38,15 @@
                     require_once './class/NewsDAO.class.php';
                     $news = new NewsDAO();
                     if (isset($_POST["newstitle"]) and isset($_POST["newscontent"])) {
-                        $news->updateNews($_GET["newsId"], $_POST["newstitle"], $_POST["newscontent"], date("Ymd"), $_POST[category]);
+                        $news->updateNews($_GET["newsId"], $_POST["newstitle"], $_POST["newscontent"], date("Ymd"), $_POST["category"]);
                     }
-                    $news = $news->newsContent($_GET["newsId"]);
+                    $news1 = new NewsDAO();
+                    $arr = $news1->newsContent($_GET["newsId"]);
                  ?>
                 <p>新闻标题</p>
-                <textarea name="newstitle" rows="2" cols="100"><?php echo $news["title"]; ?></textarea>
+                <textarea name="newstitle" rows="2" cols="100"><?php echo $arr["title"]; ?></textarea>
                 <p>新闻内容</p>
-                <textarea name="newscontent" rows="10" cols="100"><?php echo $news["content"]; ?></textarea>
+                <textarea name="newscontent" rows="10" cols="100"><?php echo $arr["content"]; ?></textarea>
                 <p><input type="submit" value="提交新闻"></p>
             </form>
         </div>

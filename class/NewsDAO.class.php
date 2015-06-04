@@ -285,13 +285,17 @@ class NewsDAO
      */
     public function updateNews($newsId, $title, $content, $createTime, $catId)
     {
-        $sql = "update news set title = '$title' where newsId = $newsId;
-                update news set title = '$title' where newsId = $newsId;";
-        mysql_query($sql, $this->conn);
-        if (mysql_affected_rows() != -1) {
-            return true;
-        } else {
-            return false;
+        $sql = Array("update news set title = '$title' where newsId = $newsId",
+                "update news set content = '$content' where newsId = $newsId",
+                "update news set createTime = $createTime where newsId = $newsId",
+                "update news set catId = $catId where newsId = $newsId");
+        for ($i = 0; $i < 4; $i++) {
+            mysql_query($sql[$i], $this->conn);
+            // if (mysql_affected_rows() != -1) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
         }
         mysql_close($this->conn);
     }
@@ -367,7 +371,7 @@ class NewsDAO
 // $ca = new NewsDAO();
 // var_dump($ca);
 // var_dump($ca->newsContent(2));
-
+// var_dump($ca->updateNews(23, 'xiugai!!', 'xiugai', 20150605, 2));
 // $ca->displayNewTenNews();
 // $ca->displayHotTenNews();
 // $ca->displayNewsByNewsid(6);
