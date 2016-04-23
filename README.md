@@ -2,8 +2,6 @@
 
 A Lighting Framework of News Websites.
 
-好吧其实是 Web 的大作业罢了。
-
 文件夹 | 内容
 --- | ---
 class文件夹 | 核心类程序文件夹，有MySQL数据库操作类程序
@@ -14,5 +12,5 @@ sql文件夹 | 存放sql文件
 inc文件夹 | 存放header和footer
 根目录 | 运行的php、html文件
 
-## Warning!!!
-这个写的也不一定都对，感觉 CSS 那部分写的代码重复率很高，前端的没学好。
+## Warning
+感觉 CSS 那部分写的代码重复率很高，前端的没学好。
